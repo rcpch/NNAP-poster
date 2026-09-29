@@ -314,6 +314,10 @@
             text-align: left;
         }
 
+        .network-rate-note {
+            font-size: 9px;
+        }
+
         .chart-item.right-label .chart-title {
             text-align: left;
         }
@@ -437,6 +441,15 @@
             background-color: #dff2fb;
             border-radius: 10px;
             box-sizing: border-box;
+            position: relative;
+        }
+
+        .discuss-care-icon {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 65px;
+            height: 65px;
         }
 
         .find-out-more-box h5 {
@@ -444,6 +457,7 @@
             font-weight: bold;
             color: var(--nnap-cyan);
             margin: 0 0 5px 0;
+            padding-right: 44px;
         }
 
         .find-out-more-box p {
@@ -459,8 +473,16 @@
             height: 86px !important;
             object-fit: contain !important;
             flex-shrink: 0;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: transparent;
+        }
+
+        .find-out-more-left-logo img {
+            width: 150px !important;
+            height: 75px !important;
+            object-fit: contain;
         }
 
         .poster-footer {
@@ -658,21 +680,21 @@
             padding: 0;
             display: flex;
             align-items: flex-end;
-            gap: 16px;
+            gap: 4px;
         }
 
         .poster-disclaimer p {
             flex: 1;
             margin: 0;
             color: var(--nnap-text);
-            font-size: 9px;
+            font-size: 8px;
             line-height: 1.2;
         }
 
         .poster-publication-date {
             flex-shrink: 0;
             color: var(--nnap-text);
-            font-size: 9px;
+            font-size: 8px;
             line-height: 1.2;
             white-space: nowrap;
         }
@@ -766,16 +788,17 @@
                 </div>
                 <div class="find-out-more-text">
                     <h5>How we use your data</h5>
-                    <p>To find out more about how we use your/your baby's information, please visit <a href="https://www.rcpch.ac.uk/resources/your-babys-care" target="_blank">www.rcpch.ac.uk/resources/your-babys-care</a> or scan the QR code with your phone.</p>
+                    <p>To find out more about how we use your baby's information, please visit <a href="https://www.rcpch.ac.uk/nnap" target="_blank">www.rcpch.ac.uk/NNAP</a> or scan the QR code with your phone.</p>
                 </div>
             </div>
             <div class="find-out-more-box">
+                <img class="discuss-care-icon" src="Speech bubble3-with-Graphic.svg" alt="" />
                 <h5>Discuss your own care</h5>
                 <p>If you would like to speak about the neonatal care you receive, please speak to your doctor or nurse.</p>
             </div>
             <div class="poster-disclaimer">
-                <p><strong>NNAP unit posters communicate selected NNAP results for the neonatal unit to
-                parents and families. They should not be used for accountability
+                <p><strong>NNAP unit posters communicate selected NNAP results for your unit
+                        to parents and families. They should not be used for accountability
                         reporting.</strong><br>
                     Measures listed as “N/A” are either masked to reduce the risk of
                     deductive disclosure or had no eligible babies in 2025.</p>
@@ -830,7 +853,7 @@
                 <!-- Column 1 -->
                 <div class="column">
                     <h5>Learn more about this unit</h5>
-                    <p>Find out more about this neonatal unit's NNAP results by going to the NNAP Online reporting tool at: <a href="https://www.rcpch.ac.uk/resources/nnap-online-report-data" target="_blank">www.rcpch.ac.uk/nnap</a></p>
+                    <p>Find out more about this neonatal unit's NNAP results by going to the NNAP Online reporting tool at: <a href="https://www.rcpch.ac.uk/nnap" target="_blank">www.rcpch.ac.uk/nnap</a></p>
 
                     <h5>Ask a nurse</h5>
                     <p>Ask your neonatal nurse for more information about your unit's NNAP results and their plans for improvement</p>
@@ -845,7 +868,7 @@
                             target="_blank">support.bliss.org.uk</a></p>
 
                     <h5>Learn more about NNAP</h5>
-                    <p>Learn more about what the NNAP does and how your baby's information is used to support improvement by going to: <a href="https://www.rcpch.ac.uk/work-we-do/clinical-audits/nnap" target="_blank">www.rcpch.ac.uk/nnap</a> </p>
+                    <p>Learn more about what the NNAP does and how your baby's information is used to support improvement by going to: <a href="https://www.rcpch.ac.uk/nnap" target="_blank">www.rcpch.ac.uk/nnap</a> </p>
                 </div>
 
                 <!-- Column 3 -->
@@ -3505,7 +3528,7 @@ const hospitalData = {
         const perinatalChartLabels = {
             PERINATAL_1_pct: {
                 title: "Antenatal steroids",
-                subtitle: "Overall, <b>X%</b> of mothers of babies born at less than 34 weeks were given a fullcourse of antenatal steroids in the week before birth.",
+                subtitle: "Overall, <b>X%</b> of mothers of babies born at less than 34 weeks were given a fullcourse of antenatal steroids in the week before delivery.",
                 average: null,
                 logo: neonatalChartLabels.ANS_pct.logo
             },
@@ -3535,7 +3558,7 @@ const hospitalData = {
             },
             PERINATAL_6_pct: {
                 title: "Born in a NICU",
-                subtitle: "Overall, <b>X%</b> of babies born at less than 27 week's were born in a hospital with a NICU on site. </br></br>*Note that this rate is for [network name]",
+                subtitle: "Overall, <b>X%</b> of babies born at less than 27 week's were born in a centre with a NICU on site. </br></br><span class=\"network-rate-note\">Note that this rate is for [network name]</span>",
                 average: null,
                 logo: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIxOS40NSAxNi41MyA1NC42MyA1Mi41MyI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgICBmb250LWZhbWlseTogTW9udHNlcnJhdC1Cb2xkLCBNb250c2VycmF0OwogICAgICAgIGZvbnQtc2l6ZTogMy40NXB4OwogICAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7CiAgICAgIH0KCiAgICAgIC5jbHMtMiB7CiAgICAgICAgZmlsbDogIzAwYTdlNzsKICAgICAgfQoKICAgICAgLmNscy0zIHsKICAgICAgICBmaWxsOiAjZGVkZWRlOwogICAgICB9CgogICAgICAuY2xzLTQgewogICAgICAgIGZpbGw6IG5vbmU7CiAgICAgIH0KCiAgICAgIC5jbHMtNSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoLTEpOwogICAgICB9CgogICAgICAuY2xzLTYgewogICAgICAgIGZpbGw6ICM5ZDlkOWM7CiAgICAgIH0KCiAgICAgIC5jbHMtNyB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoLTIpOwogICAgICB9CgogICAgICAuY2xzLTggewogICAgICAgIGZpbGw6ICM2NDYzNjM7CiAgICAgIH0KCiAgICAgIC5jbHMtOSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoKTsKICAgICAgfQoKICAgICAgLmNscy0xMCB7CiAgICAgICAgZmlsbDogI2Q0ZDRkNDsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPgogICAgICA8cmVjdCBjbGFzcz0iY2xzLTQiIHg9IjE5LjQ1IiB5PSIxNi41MyIgd2lkdGg9IjU0LjYzIiBoZWlnaHQ9IjUyLjUzIi8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoIGlkPSJjbGlwcGF0aC0xIj4KICAgICAgPHJlY3QgY2xhc3M9ImNscy00IiB4PSIxOS40NSIgeT0iMTYuNTMiIHdpZHRoPSI1NC42MyIgaGVpZ2h0PSI1Mi41MyIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMiI+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtNCIgeD0iMTkuNDUiIHk9IjE2LjUzIiB3aWR0aD0iNTQuNjMiIGhlaWdodD0iNTIuNTMiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxnIGNsYXNzPSJjbHMtOSI+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00Ni43Niw2OS4wNmMtMTUuMDksMC0yNy4zMS0xLjc0LTI3LjMxLTMuODlzMTIuMjMtMy44OSwyNy4zMS0zLjg5LDI3LjMxLDEuNzQsMjcuMzEsMy44OS0xMi4yMywzLjg5LTI3LjMxLDMuODkiLz4KICA8L2c+CiAgPHBvbHlnb24gY2xhc3M9ImNscy0xMCIgcG9pbnRzPSI1OS42MiA0Ny4zIDU5LjYyIDY0LjczIDI1LjcyIDY0LjczIDI1LjcyIDQ3Ljc3IDU5LjYyIDQ3LjMiLz4KICA8cG9seWdvbiBjbGFzcz0iY2xzLTYiIHBvaW50cz0iNDAuODkgNDcuMzcgNDAuODkgNjQuNzMgNDUuMjIgNjQuNzMgNDUuMjIgNDcuMzEgNDAuODkgNDcuMzciLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjM0LjUxIiB5PSI1MS4wNCIgd2lkdGg9IjMuNzQiIGhlaWdodD0iNS4zMyIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iMjguMjciIHk9IjUxLjA0IiB3aWR0aD0iMy43NCIgaGVpZ2h0PSI1LjMzIi8+CiAgPHJlY3QgY2xhc3M9ImNscy0xMCIgeD0iNDEuMzEiIHk9IjIyLjAyIiB3aWR0aD0iMjguODMiIGhlaWdodD0iNDMuMjgiLz4KICA8ZyBjbGFzcz0iY2xzLTUiPgogICAgPHBhdGggY2xhc3M9ImNscy0xMCIgZD0iTTU1LjczLDI3LjUxYy0zLjA2LDAtNS41NC0yLjQ2LTUuNTQtNS40OXMyLjQ4LTUuNDksNS41NC01LjQ5LDUuNTQsMi40Niw1LjU0LDUuNDktMi40OCw1LjQ5LTUuNTQsNS40OSIvPgogIDwvZz4KICA8cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjU0Ljc4IiB5PSIxOC45NCIgd2lkdGg9IjEuODkiIGhlaWdodD0iNi4xNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iNTIuNjIiIHk9IjIxLjA4IiB3aWR0aD0iNi4yMSIgaGVpZ2h0PSIxLjg4Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy02IiB4PSI2NC43MyIgeT0iMjguNDMiIHdpZHRoPSIzLjIyIiBoZWlnaHQ9IjQuNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iNTkuNTUiIHk9IjI4LjQzIiB3aWR0aD0iMy4yMiIgaGVpZ2h0PSI0LjYiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjU0LjM4IiB5PSIyOC40MyIgd2lkdGg9IjMuMjIiIGhlaWdodD0iNC42Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy02IiB4PSI2NC43MyIgeT0iMzUuMTYiIHdpZHRoPSIzLjIyIiBoZWlnaHQ9IjQuNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iNTkuNTUiIHk9IjM1LjE2IiB3aWR0aD0iMy4yMiIgaGVpZ2h0PSI0LjYiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjU0LjM4IiB5PSIzNS4xNiIgd2lkdGg9IjMuMjIiIGhlaWdodD0iNC42Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy02IiB4PSI2NC43MyIgeT0iNDEuODkiIHdpZHRoPSIzLjIyIiBoZWlnaHQ9IjQuNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iNTkuNTUiIHk9IjQxLjg5IiB3aWR0aD0iMy4yMiIgaGVpZ2h0PSI0LjYiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjU0LjM4IiB5PSI0MS44OSIgd2lkdGg9IjMuMjIiIGhlaWdodD0iNC42Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy02IiB4PSI2NC43MyIgeT0iNDguNjIiIHdpZHRoPSIzLjIyIiBoZWlnaHQ9IjQuNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iNTkuNTUiIHk9IjQ4LjYyIiB3aWR0aD0iMy4yMiIgaGVpZ2h0PSI0LjYiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjU0LjM4IiB5PSI0OC42MiIgd2lkdGg9IjMuMjIiIGhlaWdodD0iNC42Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy02IiB4PSI0OS4xNSIgeT0iMjguNDMiIHdpZHRoPSIzLjIyIiBoZWlnaHQ9IjQuNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iNDMuOTgiIHk9IjI4LjQzIiB3aWR0aD0iMy4yMiIgaGVpZ2h0PSI0LjYiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjQ5LjE1IiB5PSIzNS4xNiIgd2lkdGg9IjMuMjIiIGhlaWdodD0iNC42Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy02IiB4PSI0My45OCIgeT0iMzUuMTYiIHdpZHRoPSIzLjIyIiBoZWlnaHQ9IjQuNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iNDkuMTUiIHk9IjQxLjg5IiB3aWR0aD0iMy4yMiIgaGVpZ2h0PSI0LjYiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjQzLjk4IiB5PSI0MS44OSIgd2lkdGg9IjMuMjIiIGhlaWdodD0iNC42Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy02IiB4PSI0OS4xNSIgeT0iNDguNjIiIHdpZHRoPSIzLjIyIiBoZWlnaHQ9IjQuNiIvPgogIDxyZWN0IGNsYXNzPSJjbHMtNiIgeD0iNDMuOTgiIHk9IjQ4LjYyIiB3aWR0aD0iMy4yMiIgaGVpZ2h0PSI0LjYiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTYiIHg9IjQ5LjE1IiB5PSI1NS4yNiIgd2lkdGg9IjEzLjE1IiBoZWlnaHQ9IjEwLjA0Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy0xMCIgeD0iNTUuNDUiIHk9IjU1LjI2IiB3aWR0aD0iLjU2IiBoZWlnaHQ9IjEwLjA0Ii8+CiAgPHJlY3QgY2xhc3M9ImNscy04IiB4PSIzMi43OCIgeT0iNTkuODciIHdpZHRoPSIuOTUiIGhlaWdodD0iNy40OSIvPgogIDxyZWN0IGNsYXNzPSJjbHMtOCIgeD0iNDEuMTgiIHk9IjU5Ljg3IiB3aWR0aD0iLjk1IiBoZWlnaHQ9IjcuNDkiLz4KICA8cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjMwLjkyIiB5PSI1OC4xMSIgd2lkdGg9IjEzLjA2IiBoZWlnaHQ9IjcuNDkiLz4KICA8ZyBjbGFzcz0iY2xzLTciPgogICAgPHRleHQgY2xhc3M9ImNscy0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMi45IDYzLjI0KSI+PHRzcGFuIHg9IjAiIHk9IjAiPk5JQ1U8L3RzcGFuPjwvdGV4dD4KICA8L2c+Cjwvc3ZnPg=="
             }
@@ -3545,7 +3568,7 @@ const hospitalData = {
             neonatal: {
                 title: "Partnership in neonatal care",
                 subtitle: 'Measuring standards and improving neonatal care',
-                measureHeading: 'How our unit did across 8 partnership in neonatal care measures:',
+                measureHeading: 'How our unit did across 8 NNAP measures:',
                 fileSuffix: 'Neonatal',
                 measureKeys: [
                     'PCONS_pct',
@@ -3563,7 +3586,7 @@ const hospitalData = {
             perinatal: {
                 title: 'Perinatal Optimisation',
                 subtitle: 'Measuring standards and improving neonatal care',
-                measureHeading: 'How our unit did across 6 NNAP perinatal optimisation measures:',
+                measureHeading: 'How our unit did across 6 NNAP measures:',
                 fileSuffix: 'Perinatal',
                 measureKeys: [
                     'PERINATAL_1_pct',
@@ -3707,7 +3730,7 @@ const hospitalData = {
         // Generate QR Code using API service
         function generateQRCode() {
             const qrImg = document.getElementById('qrcode');
-            const url = 'https://www.rcpch.ac.uk/resources/your-babys-care';
+            const url = 'https://www.rcpch.ac.uk/nnap';
             const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=${encodeURIComponent(url)}`;
             qrImg.src = qrUrl;
         }
